@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:53:54 by enijakow          #+#    #+#             */
-/*   Updated: 2021/11/12 16:43:38 by enijakow         ###   ########.fr       */
+/*   Updated: 2021/12/08 14:27:24 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,7 +208,17 @@ void					ft_writer_create_fd(struct s_writer *writer,
 void					ft_writer_destroy(struct s_writer *writer);
 
 void					ft_writer_write_char(struct s_writer *writer, char c);
+void					ft_writer_write_cstr(struct s_writer *writer,
+							char *str);
 void					ft_writer_write_string(struct s_writer *writer,
 							struct s_string *string);
+void					ft_writer_write_ulong_base(struct s_writer *writer,
+							unsigned long value,
+							int base,
+							const char *basestr);
+void					ft_writer_write_int_base(struct s_writer *writer,
+							int value, int base, const char *basestr);
+void					ft_writer_write_int(struct s_writer *writer,
+							int value);
 
 #endif

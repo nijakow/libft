@@ -6,7 +6,7 @@
 #    By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/15 10:08:48 by enijakow          #+#    #+#              #
-#    Updated: 2021/11/12 16:41:45 by enijakow         ###   ########.fr        #
+#    Updated: 2021/12/08 14:29:37 by enijakow         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,10 @@ ft_vector_length.c \
 ft_vector_new.c \
 ft_writer_destroy.c \
 ft_writer_write_char.c \
+ft_writer_write_int_base.c \
+ft_writer_write_int.c \
 ft_writer_write_string.c \
+ft_writer_write_ulong_base.c \
 ft_writer.c
 
 BONUS_SOURCES =
