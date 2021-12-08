@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:53:54 by enijakow          #+#    #+#             */
-/*   Updated: 2021/12/08 14:27:24 by enijakow         ###   ########.fr       */
+/*   Updated: 2021/12/08 14:33:25 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,16 +156,6 @@ bool					ft_string_append_cstr(struct s_string *self,
 							char *cstr);
 bool					ft_string_append_string(struct s_string *self,
 							struct s_string *other);
-void					ft_string_append_ulong_base(struct s_string *self,
-							unsigned long value,
-							int base,
-							const char *basestr);
-void					ft_string_append_int_base(struct s_string *self,
-							int value,
-							int base,
-							const char *basestr);
-void					ft_string_append_int_base10(struct s_string *self,
-							int value);
 
 void					ft_string_writefd(struct s_string *self, int fd);
 
