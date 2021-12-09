@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:53:54 by enijakow          #+#    #+#             */
-/*   Updated: 2021/12/08 14:33:25 by enijakow         ###   ########.fr       */
+/*   Updated: 2021/12/09 13:37:18 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,8 @@ struct s_string			*ft_string_new(void);
 struct s_string			*ft_string_new_fromc(char *c_str);
 struct s_string			*ft_string_copy(struct s_string *original);
 
+struct s_writer			*ft_string_as_writer(struct s_string *self);
+
 int						ft_string_index(struct s_string *self,
 							unsigned int index);
 size_t					ft_string_length(struct s_string *self);
@@ -187,15 +189,28 @@ bool					ft_reader_read_line(struct s_reader *reader,
 bool					ft_reader_read_int(struct s_reader *reader,
 							int *value);
 
+enum e_writer_mode
+{
+	WRITER_MODE_FD,
+	WRITER_MODE_STRING
+};
+
 struct s_writer
 {
-	struct s_object	_;
-	int				fd;
+	struct s_object		_;
+	enum e_writer_mode	mode;
+	int					fd;
+	struct s_string		*string;
 };
 
 void					ft_writer_create_fd(struct s_writer *writer,
 							int fd);
+void					ft_writer_create_string(struct s_writer *writer,
+							struct s_string *string);
 void					ft_writer_destroy(struct s_writer *writer);
+
+struct s_writer			*ft_writer_new_fd(int fd);
+struct s_writer			*ft_writer_new_string(struct s_string *string);
 
 void					ft_writer_write_char(struct s_writer *writer, char c);
 void					ft_writer_write_cstr(struct s_writer *writer,

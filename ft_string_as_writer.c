@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_writer_write_char.c                             :+:      :+:    :+:   */
+/*   ft_string_as_writer.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 17:23:52 by enijakow          #+#    #+#             */
-/*   Updated: 2021/12/09 13:32:58 by enijakow         ###   ########.fr       */
+/*   Created: 2021/12/09 13:33:33 by enijakow          #+#    #+#             */
+/*   Updated: 2021/12/09 13:38:12 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_writer_write_char(struct s_writer *writer, char c)
+struct s_writer	*ft_string_as_writer(struct s_string *self)
 {
-	if (writer->mode == WRITER_MODE_FD)
-		write(writer->fd, &c, 1);
-	else if (writer->mode == WRITER_MODE_STRING)
-		ft_string_append_char(writer->string, c);
+	return (ft_writer_new_string(self));
 }

@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 17:20:52 by enijakow          #+#    #+#             */
-/*   Updated: 2021/11/09 17:30:22 by enijakow         ###   ########.fr       */
+/*   Updated: 2021/12/09 13:31:55 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,13 @@ static struct s_type	g_WRITER_TYPE = {
 void	ft_writer_create_fd(struct s_writer *self, int fd)
 {
 	ft_object_create(&self->_, &g_WRITER_TYPE);
+	self->mode = WRITER_MODE_FD;
 	self->fd = fd;
+}
+
+void	ft_writer_create_string(struct s_writer *self, struct s_string *string)
+{
+	ft_object_create(&self->_, &g_WRITER_TYPE);
+	self->mode = WRITER_MODE_STRING;
+	self->string = string;
 }
