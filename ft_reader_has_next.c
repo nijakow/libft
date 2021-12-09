@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 16:17:34 by enijakow          #+#    #+#             */
-/*   Updated: 2021/11/12 16:29:02 by enijakow         ###   ########.fr       */
+/*   Updated: 2021/12/09 13:57:41 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 bool	ft_reader_has_next(struct s_reader *reader)
 {
-	return (reader->c_str[reader->index] != '\0');
+	return (ft_reader_peek(reader, NULL));
 }

@@ -6,7 +6,7 @@
 #    By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/15 10:08:48 by enijakow          #+#    #+#              #
-#    Updated: 2021/12/09 13:37:55 by enijakow         ###   ########.fr        #
+#    Updated: 2021/12/09 13:47:57 by enijakow         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,8 @@ ft_reader_read_int.c \
 ft_reader_read_line.c \
 ft_reader_skip.c \
 ft_reader_skip_whitespace.c \
+ft_reader_skip.c \
+ft_reader.c \
 ft_string_append.c \
 ft_string_as_writer.c \
 ft_string_destroy.c \

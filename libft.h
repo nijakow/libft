@@ -6,7 +6,7 @@
 /*   By: enijakow <enijakow@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/30 16:53:54 by enijakow          #+#    #+#             */
-/*   Updated: 2021/12/09 13:37:18 by enijakow         ###   ########.fr       */
+/*   Updated: 2021/12/09 14:05:52 by enijakow         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ struct s_string			*ft_string_new(void);
 struct s_string			*ft_string_new_fromc(char *c_str);
 struct s_string			*ft_string_copy(struct s_string *original);
 
+struct s_reader			*ft_string_as_reader(struct s_string *self);
 struct s_writer			*ft_string_as_writer(struct s_string *self);
 
 int						ft_string_index(struct s_string *self,
@@ -161,24 +162,39 @@ bool					ft_string_append_string(struct s_string *self,
 
 void					ft_string_writefd(struct s_string *self, int fd);
 
+enum e_reader_mode
+{
+	READER_MODE_CSTR,
+	READER_MODE_STRING,
+	READER_MODE_FD
+};
+
 struct s_reader
 {
-	struct s_object	_;
-	char			*c_str;
-	unsigned int	index;
-	bool			autofree;
+	struct s_object		_;
+	enum e_reader_mode	mode;
+	char				*c_str;
+	struct s_string		*string;
+	int					fd;
+	unsigned int		index;
+	bool				cached;
+	char				cached_char;
 };
 
 void					ft_reader_create_cstr(struct s_reader *reader,
-							char *c_str,
-							bool autofree);
+							char *c_str);
+void					ft_reader_create_string(struct s_reader *reader,
+							struct s_string *string);
+void					ft_reader_create_fd(struct s_reader *reader,
+							int fd);
 void					ft_reader_destroy(struct s_reader *reader);
 
 struct s_reader			*ft_reader_new_cstr(char *c_str,
 							bool autofree);
 
 bool					ft_reader_has_next(struct s_reader *reader);
-char					ft_reader_peek(struct s_reader *reader);
+bool					ft_reader_peek(struct s_reader *reader, char *c);
+char					ft_reader_peekd(struct s_reader *reader, char c);
 void					ft_reader_advance(struct s_reader *reader);
 char					ft_reader_next(struct s_reader *reader);
 void					ft_reader_skip(struct s_reader *reader,
